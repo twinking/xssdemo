@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<!-- 设置为IMsgDao接口方法提供sql语句配置 -->
+<mapper namespace="com.zq.xssdemo.moduls.msg.dao.IMsgDao">
+
+
+    <select id="list" resultType="Msg" >
+        SELECT
+            m.id AS "id",
+            m.user_id AS "userId",
+            m.message AS "message",
+            m.time  AS "time",
+            u.username AS "username"
+            FROM msg m
+            LEFT JOIN user u ON u.id = m.user_id
+            GROUP BY id DESC
+    </select>
+
+    <select id="insert">
+        INSERT INTO msg(
+            id,
+            user_id,
+            message,
+            time
+        )VALUES(
+            #{id},
+			#{userId},
+			#{message},
+			#{time}
+        )
+    </select>
+
+</mapper>

