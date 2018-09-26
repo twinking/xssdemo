@@ -1,8 +1,8 @@
 
-import com.zq.xssdemo.moduls.msg.dao.IMsgDao;
-import com.zq.xssdemo.moduls.msg.entity.Msg;
-import com.zq.xssdemo.moduls.sys.dao.IUserDao;
-import com.zq.xssdemo.moduls.sys.entity.User;
+import com.zq.xssdemo.modules.msg.dao.IMsgDao;
+import com.zq.xssdemo.modules.msg.entity.Msg;
+import com.zq.xssdemo.modules.sys.dao.IUserDao;
+import com.zq.xssdemo.modules.sys.entity.User;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -10,7 +10,6 @@ import org.springframework.test.context.ContextConfiguration;
 import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
 
 import java.util.Date;
-import java.util.List;
 
 // 加载spring配置文件
 @RunWith(SpringJUnit4ClassRunner.class)

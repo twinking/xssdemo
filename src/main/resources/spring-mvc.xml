@@ -4,11 +4,11 @@
        xmlns:mvc="http://www.springframework.org/schema/mvc"
        xmlns:context="http://www.springframework.org/schema/context"
        xsi:schemaLocation="http://www.springframework.org/schema/beans
-            http://www.springframework.org/schema/beans/spring-beans-3.0.xsd
+            http://www.springframework.org/schema/beans/spring-beans-4.0.xsd
             http://www.springframework.org/schema/context
-            http://www.springframework.org/schema/context/spring-context-3.0.xsd
+            http://www.springframework.org/schema/context/spring-context-4.0.xsd
             http://www.springframework.org/schema/mvc
-            http://www.springframework.org/schema/mvc/spring-mvc-3.0.xsd
+            http://www.springframework.org/schema/mvc/spring-mvc-4.0.xsd
             ">
     <!-- 启用spring mvc 注解 -->
     <context:annotation-config/>
@@ -24,4 +24,15 @@
         <property name="prefix" value="/webpage/"/>
         <property name="suffix" value=".jsp"/>
     </bean>
+
+    <!-- 拦截器配置，拦截顺序：先执行后定义的，排在第一位的最后执行。-->
+    <mvc:interceptors>
+        <mvc:interceptor>
+            <mvc:mapping path="/**" />
+            <mvc:exclude-mapping path="/"/>
+            <mvc:exclude-mapping path="/login"/>
+            <bean class="com.zq.xssdemo.common.Interceptor.LogInterceptor" />
+        </mvc:interceptor>
+    </mvc:interceptors>
+
 </beans>
